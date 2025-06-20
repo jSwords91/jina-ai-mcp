@@ -20,6 +20,24 @@ npx @modelcontextprotocol/inspector uv run src/jina-mcp/server.py
 
 Integrate with an mcp client for LLM use. e.g. claude, cursor, custom.
 
+For example your config might look like this
+
+```
+{
+  "mcpServers": {
+    "jina-mcp": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:\\Users\\jswords\\mcp-jina\\src\\jina-mcp\\",
+        "run",
+        "server.py"
+      ]
+    }
+  }
+}
+```
+
 ### To Do
 
 - Add support for batch fetching in parallel

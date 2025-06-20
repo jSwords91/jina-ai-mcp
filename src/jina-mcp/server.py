@@ -98,8 +98,8 @@ async def fetch_and_store_url(url: str) -> List[types.TextContent]:
 async def list_tools() -> List[types.Tool]:
     return [
         types.Tool(
-            name="jina_fetch_markdown",
-            description="Fetch a single web page as Markdown via r.jina.ai",
+            name="fetch_markdown",
+            description="Fetch a single web page as Markdown.",
             inputSchema=URLRequest.model_json_schema(),
         )
     ]
@@ -108,7 +108,7 @@ async def list_tools() -> List[types.Tool]:
 async def call_tool(name: str, arguments: dict | None) -> List[types.TextContent]:
     if not arguments:
         raise ValueError("Missing arguments")
-    if name != "jina_fetch_markdown":
+    if name != "fetch_markdown":
         raise ValueError(f"Unknown tool: {name}")
     args = URLRequest(**arguments)
     return await fetch_and_store_url(str(args.url))
